@@ -41,16 +41,15 @@ classifiers = [
 "Bug Tracker" = "https://github.com/chaoss/grimoirelab-cereslib/issues"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 
-numpy = "<1.22.1"
 six = "^1.16.0"
 scipy = "^1.5"
-pandas = "^1.3.5"
+pandas = "^2.2"
 grimoirelab-toolkit = { version = ">=0.3", allow-prereleases = true }
 
 [tool.poetry.dev-dependencies]
-flake8 = "^4.0.1"
+flake8 = "^7.1.1"
 coverage = "^6.2"
 
 [build-system]

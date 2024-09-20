@@ -23,7 +23,8 @@ import sys
 import unittest
 
 import pandas
-import scipy
+
+import numpy as np
 
 if '..' not in sys.path:
     sys.path.insert(0, '..')
@@ -50,7 +51,7 @@ class TestFormat(unittest.TestCase):
 
         # With a dataframe with some data, this returns a non-empty dataframe
         df = empty_df.copy()
-        df["test"] = scipy.zeros(10)
+        df["test"] = np.zeros(10)
 
         self.assertFalse(Format().fill_missing_fields(df, empty_columns).empty)
 

@@ -22,7 +22,7 @@
 
 import pandas
 
-import scipy
+import numpy as np
 
 
 class Format(object):
@@ -53,7 +53,7 @@ class Format(object):
 
         for column in columns:
             if column not in data.columns:
-                data[column] = scipy.zeros(len(data))
+                data[column] = np.zeros(len(data))
 
         return data
 
