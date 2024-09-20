@@ -40,7 +40,7 @@ class TestFilter(unittest.TestCase):
 
         # One column, values of different types
         df = pandas.DataFrame()
-        filepaths = ['', None, '-', '/file/path', 1, True, pandas.np.nan, '-', [1, 2]]
+        filepaths = ['', None, '-', '/file/path', 1, True, pandas.NA, '-', [1, 2]]
         df["filepath"] = filepaths
         data_filtered = FilterRows(df)
         df = data_filtered.filter_(["filepath"], "-")

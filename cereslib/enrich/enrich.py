@@ -83,16 +83,14 @@ class PairProgramming(Enrich):
            column2 not in self.commits.columns:
             return self.commits
 
-        # Select rows where values in column1 are different from
-        # values in column2
-        pair_df = self.commits[self.commits[column1] != self.commits[column2]]
-        new_values = list(pair_df[column2])
-        # Update values from column2
-        pair_df[column1] = new_values
+        # Select rows where values in column1 are different from values in column2
+        pair_df = self.commits[self.commits[column1] != self.commits[column2]].copy()
 
-        # This adds at the end of the original dataframe those rows duplicating
-        # information and updating the values in column1
-        return self.commits.append(pair_df)
+        # Update values from column2
+        pair_df[column1] = pair_df[column2].tolist()
+
+        # Concatenate the original dataframe with the new one
+        return pandas.concat([self.commits, pair_df], ignore_index=True)
 
 
 class FileType(Enrich):
@@ -454,14 +452,14 @@ class ToUTF8(Enrich):
         """ Remove surrogates in the specified string
         """
 
-        if type(s) == list and len(s) == 1:
+        if isinstance(s, list) and len(s) == 1:
             if self.__is_surrogate_escaped(s[0]):
                 return s[0].encode('utf-8', method).decode('utf-8')
             else:
                 return ""
-        if type(s) == list:
+        if isinstance(s, list):
             return ""
-        if type(s) != str:
+        if not isinstance(s, str):
             return ""
         if self.__is_surrogate_escaped(s):
             return s.encode('utf-8', method).decode('utf-8')
