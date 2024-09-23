@@ -1,5 +1,14 @@
 # Releases
 
+## cereslib 1.0.5 - (2024-09-23)
+
+**Dependencies updateds:**
+
+ * Python minimum version updated\
+   Python 3.8 will reach its end of life in October 2024. Python 3.9 is
+   the minimum version required by the project.
+
+
   ## cereslib 1.0.4 - (2024-08-09)
   
   * Update Poetry's package dependencies
