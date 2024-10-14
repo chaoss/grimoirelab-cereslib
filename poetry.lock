@@ -80,13 +80,13 @@ pyflakes = ">=3.2.0,<3.3.0"
 
 [[package]]
 name = "grimoirelab-toolkit"
-version = "1.0.5"
+version = "1.0.6rc1"
 description = "Toolkit of common functions used across GrimoireLab"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "grimoirelab_toolkit-1.0.5-py3-none-any.whl", hash = "sha256:5bed5b6e73ac9c6babed2c88c0934d9c719bfcbea42360580369f0eb0a0184c0"},
-    {file = "grimoirelab_toolkit-1.0.5.tar.gz", hash = "sha256:2232ae0b336bf284f77bdfcbfe27402cbdc1aff314ee7cc9b88c676b79b37548"},
+    {file = "grimoirelab_toolkit-1.0.6rc1-py3-none-any.whl", hash = "sha256:5d1b4f023922ca626ab941acc852bdc160a7f924d7aec9b9d382b1dca6d4f899"},
+    {file = "grimoirelab_toolkit-1.0.6rc1.tar.gz", hash = "sha256:bbd75117f05939ff981dda8da525f092f1a88b06cb8a338740a060d0bad93a75"},
 ]
 
 [package.dependencies]
@@ -345,13 +345,13 @@ files = [
 
 [[package]]
 name = "tzdata"
-version = "2024.1"
+version = "2024.2"
 description = "Provider of IANA time zone data"
 optional = false
 python-versions = ">=2"
 files = [
-    {file = "tzdata-2024.1-py2.py3-none-any.whl", hash = "sha256:9068bc196136463f5245e51efda838afa15aaeca9903f49050dfa2679db4d252"},
-    {file = "tzdata-2024.1.tar.gz", hash = "sha256:2674120f8d891909751c38abcdfd386ac0a5a1127954fbc332af6b5ceae07efd"},
+    {file = "tzdata-2024.2-py2.py3-none-any.whl", hash = "sha256:a48093786cdcde33cad18c2555e8532f34422074448fbc874186f0abd79565cd"},
+    {file = "tzdata-2024.2.tar.gz", hash = "sha256:7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc"},
 ]
 
 [metadata]
