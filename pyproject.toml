@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cereslib"
-version = "1.0.7"
+version = "1.0.8-rc.1"
 description = "GrimoireLab: Unify, eventize and enrich information from Perceval"
 authors = [
     "GrimoireLab Developers"
