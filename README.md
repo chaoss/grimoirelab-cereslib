@@ -1,4 +1,4 @@
-# Ceres [![Build Status](https://github.com/chaoss/grimoirelab-cereslib/workflows/tests/badge.svg)](https://github.com/chaoss/grimoirelab-cereslib/actions?query=workflow:tests+branch:master+event:push) [![Coverage Status](https://coveralls.io/repos/github/chaoss/grimoirelab-cereslib/badge.svg?branch=master)](https://coveralls.io/github/chaoss/grimoirelab-cereslib?branch=master) [![PyPI version](https://badge.fury.io/py/cereslib.svg)](https://badge.fury.io/py/cereslib)
+# Ceres [![Build Status](https://github.com/chaoss/grimoirelab-cereslib/workflows/tests/badge.svg)](https://github.com/chaoss/grimoirelab-cereslib/actions?query=workflow:tests+branch:main+event:push) [![Coverage Status](https://coveralls.io/repos/github/chaoss/grimoirelab-cereslib/badge.svg?branch=main)](https://coveralls.io/github/chaoss/grimoirelab-cereslib?branch=main) [![PyPI version](https://badge.fury.io/py/cereslib.svg)](https://badge.fury.io/py/cereslib)
 
 Ceres is a library that aims at dealing with data in general,
 and software development data in particular.
