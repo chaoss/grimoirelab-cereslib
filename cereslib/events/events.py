@@ -382,10 +382,11 @@ class Git(Events):
     COMMIT_ID = "id"
     COMMIT_EVENT = "eventtype"
     COMMIT_DATE = "date"
+    COMMIT_TZ = "tz"
     COMMIT_OWNER = "owner"
     COMMIT_COMMITTER = "committer"
     COMMIT_COMMITTER_DATE = "committer_date"
-    COMMIT_COMMITTER_TZ = "tz"
+    COMMIT_COMMITTER_TZ = "committer_tz"
     COMMIT_REPOSITORY = "repository"
     COMMIT_MESSAGE = "message"
     COMMIT_NUM_FILES = "num_files"
@@ -419,15 +420,27 @@ class Git(Events):
         repository = item["origin"]
 
         creation_date = str_to_datetime(commit_data['AuthorDate'])
+        try:
+            creation_date_tz = int(creation_date.strftime("%z")[0:3])
+        except ValueError:
+            creation_date_tz = 0
+
+        committer_date = str_to_datetime(commit_data['CommitDate'])
+        try:
+            committer_date_tz = int(committer_date.strftime("%z")[0:3])
+        except ValueError:
+            committer_date_tz = 0
 
         df_columns[Git.COMMIT_HASH].append(commit_data['commit'])
 
         df_columns[Git.COMMIT_ID].append(commit_data['commit'])
         df_columns[Git.COMMIT_EVENT].append(Git.EVENT_COMMIT)
         df_columns[Git.COMMIT_DATE].append(creation_date)
+        df_columns[Git.COMMIT_TZ].append(creation_date_tz)
         df_columns[Git.COMMIT_OWNER].append(commit_data['Author'])
         df_columns[Git.COMMIT_COMMITTER].append(commit_data['Commit'])
-        df_columns[Git.COMMIT_COMMITTER_DATE].append(str_to_datetime(commit_data['CommitDate']))
+        df_columns[Git.COMMIT_COMMITTER_DATE].append(committer_date)
+        df_columns[Git.COMMIT_COMMITTER_TZ].append(committer_date_tz)
         df_columns[Git.COMMIT_REPOSITORY].append(repository)
         if 'message' in commit_data.keys():
             df_columns[Git.COMMIT_MESSAGE].append(commit_data['message'])
@@ -436,13 +449,6 @@ class Git(Events):
 
         author_domain = self.enrich.get_identity_domain(self.enrich.get_sh_identity(item, 'Author'))
         df_columns[Git.AUTHOR_DOMAIN].append(author_domain)
-
-        try:
-            commit_date = str_to_datetime(commit_data['CommitDate'])
-            commit_tz = int(commit_date.strftime("%z")[0:3])
-        except ValueError:
-            commit_tz = 0
-        df_columns[Git.COMMIT_COMMITTER_TZ].append(commit_tz)
 
     def eventize(self, granularity):
         """ This splits the JSON information found at self.events into the
@@ -468,6 +474,7 @@ class Git(Events):
         df_columns[Git.COMMIT_ID] = []
         df_columns[Git.COMMIT_EVENT] = []
         df_columns[Git.COMMIT_DATE] = []
+        df_columns[Git.COMMIT_TZ] = []
         df_columns[Git.COMMIT_OWNER] = []
         df_columns[Git.COMMIT_COMMITTER] = []
         df_columns[Git.COMMIT_COMMITTER_DATE] = []
@@ -562,6 +569,7 @@ class Git(Events):
         events[Git.COMMIT_ID] = df_columns[Git.COMMIT_ID]
         events[Git.COMMIT_EVENT] = df_columns[Git.COMMIT_EVENT]
         events[Git.COMMIT_DATE] = df_columns[Git.COMMIT_DATE]
+        events[Git.COMMIT_TZ] = df_columns[Git.COMMIT_TZ]
         events[Git.COMMIT_OWNER] = df_columns[Git.COMMIT_OWNER]
         events[Git.COMMIT_COMMITTER] = df_columns[Git.COMMIT_COMMITTER]
         events[Git.COMMIT_COMMITTER_DATE] = df_columns[Git.COMMIT_COMMITTER_DATE]

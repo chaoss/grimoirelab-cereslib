@@ -1,0 +1,12 @@
+---
+title: Time zone for Git aoc study updated
+category: fixed
+author: Jose Javier Merchante <jjmerchante@bitergia.com>
+issue: null
+notes: >
+  In Git areas of code study use the time zone (`tz` field) from
+  the author date instead of the committer date to be the same as
+  Git index dates.
+
+  Also include `committer_tz` in the index so it is available if
+  needed.
