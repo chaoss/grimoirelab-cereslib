@@ -1,5 +1,16 @@
 # Releases
 
+## cereslib 1.1.1 - (2025-10-10)
+
+**Bug fixes:**
+
+ * Time zone for Git aoc study updated\
+   In Git areas of code study use the time zone (`tz` field) from the
+   author date instead of the committer date to be the same as Git index
+   dates. Also include `committer_tz` in the index so it is available if
+   needed.
+
+
 ## cereslib 1.1.0 - (2025-09-23)
 
 **New features:**
