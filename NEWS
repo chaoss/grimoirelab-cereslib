@@ -1,5 +1,9 @@
 # Releases
 
+  ## cereslib 1.1.4 - (2025-11-25)
+  
+  * Update Poetry's package dependencies
+
   ## cereslib 1.1.3 - (2025-11-11)
   
   * Update Poetry's package dependencies
