@@ -71,7 +71,7 @@ class Format(object):
 
         for key in matching.keys():
             if key in data.columns:
-                data.rename(columns={key: matching[key]})
+                data = data.rename(columns={key: matching[key]})
 
         return data
 
