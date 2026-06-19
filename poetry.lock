@@ -138,14 +138,14 @@ pyflakes = ">=3.4.0,<3.5.0"
 
 [[package]]
 name = "grimoirelab-toolkit"
-version = "1.2.7rc1"
+version = "1.2.7"
 description = "Toolkit of common functions used across GrimoireLab"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "grimoirelab_toolkit-1.2.7rc1-py3-none-any.whl", hash = "sha256:8463a7d6a88bbb16c8cac1d9c806b90e1fc8465f5e355357c1dd37794660cd15"},
-    {file = "grimoirelab_toolkit-1.2.7rc1.tar.gz", hash = "sha256:d3dae50c3fb635ecd9810e1e61aaf1dfaed2f362f122fa87f8b35a916acf0565"},
+    {file = "grimoirelab_toolkit-1.2.7-py3-none-any.whl", hash = "sha256:8fa3b8cb3c835bc406c392d49dccac709554544c6844ddc12c761b7912e19346"},
+    {file = "grimoirelab_toolkit-1.2.7.tar.gz", hash = "sha256:00932d7c5858c2850935fb09de7132390b80de8a6fa515381091fb67a53dbd7b"},
 ]
 
 [package.dependencies]
