@@ -1,0 +1,9 @@
+---
+title: C++ header files categorized as code
+category: fixed
+author: Tanmay Baranwal <baranwaltanmay16@gmail.com>
+issue: 60
+notes: >
+  Files with the C++ header extensions `.hpp`, `.hh` and `.hxx`
+  were categorized as `Other` instead of `Code` in the areas of
+  code indices.

@@ -29,7 +29,7 @@ import pandas
 if '..' not in sys.path:
     sys.path.insert(0, '..')
 
-from cereslib.enrich.enrich import PairProgramming, TimeDifference, Uuid, FilePath
+from cereslib.enrich.enrich import PairProgramming, TimeDifference, Uuid, FilePath, FileType
 from cereslib.enrich.enrich import Onion
 
 from cereslib.dfutils.format import Format
@@ -97,6 +97,35 @@ class TestEnrich(unittest.TestCase):
         enriched_df = time.enrich("date_author", "date_committer")
 
         self.assertEqual(len(enriched_df[enriched_df["timedifference"] > 0]), 4)
+
+    def test_FileType(self):
+        """ Test FileType enricher"""
+
+        # Empty test
+        empty_df = pandas.DataFrame()
+        filetype = FileType(empty_df)
+        enriched_df = filetype.enrich('filepath')
+        self.assertTrue(enriched_df.empty)
+
+        expected = {
+            # C++ header files
+            'include/foo.hpp': 'Code',
+            'include/foo.hh': 'Code',
+            'include/foo.hxx': 'Code',
+            # Some extensions that were already code
+            'src/foo.cpp': 'Code',
+            'include/foo.h': 'Code',
+            'setup.py': 'Code',
+            # Not code
+            'README.md': 'Other',
+            'docs/foo.hpp.txt': 'Other',
+            'Makefile': 'Other',
+        }
+        test_df = pandas.DataFrame({'filepath': list(expected)})
+        filetype = FileType(test_df)
+        enriched_df = filetype.enrich('filepath')
+
+        self.assertListEqual(enriched_df['filetype'].tolist(), list(expected.values()))
 
     def test_FilePath(self):
         """ Test FilePath enricher"""
